@@ -17,3 +17,24 @@
 ```
 react-dockerized-react              latest                         40e7431e25a4   4 days ago      22.8MB
 ```
+
+
+### Pour image de dev : 
+1. Build the Docker image for the current folder and tag it with `dockerized-react`
+`docker build . -t dockerized-react`
+
+####  Check the image was created
+`docker images | grep dockerized-react`
+
+#### Run the image in detached mode and map port 3000 inside the container with 3000 on current host
+`docker run -p 3000:3000 -d dockerized-react`
+
+#### Pour rentrer dans le container : 
+docker exec -it dockerized-react
+
+
+## Mantine
+```
+npm install @mantine/core @mantine/hooks @mantine/form @mantine/dropzone @mantine/modals @mantine/dates dayjs @mantine/notification
+```
+

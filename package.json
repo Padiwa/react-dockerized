@@ -29,6 +29,21 @@
     "webpack-dev-server": "^4.9.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@mantine/carousel": "^5.6.2",
+    "@mantine/core": "^5.6.2",
+    "@mantine/dates": "^5.6.2",
+    "@mantine/dropzone": "^5.6.2",
+    "@mantine/form": "^5.6.2",
+    "@mantine/hooks": "^5.6.2",
+    "@mantine/modals": "^5.6.2",
+    "@mantine/notifications": "^5.6.2",
+    "@mantine/nprogress": "^5.6.2",
+    "@mantine/prism": "^5.6.2",
+    "@mantine/rte": "^5.6.2",
+    "@mantine/spotlight": "^5.6.2",
+    "dayjs": "^1.11.6",
+    "embla-carousel-react": "^7.0.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   }
