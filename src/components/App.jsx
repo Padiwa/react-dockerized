@@ -1,5 +1,6 @@
 import React from "react";
 import Tache from "./Tache";
+import TacheForm from "./TacheForm";
 class App extends React.Component {
     // variable qui fait référence à un élément du DOM
 
@@ -20,21 +21,11 @@ class App extends React.Component {
         this.setState({ taches })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-
-        const id = new Date().getTime();
-        const nom = this.state.newTache;
-        // const taches = this.state.taches.slice();
+    handleAdd = tache => {
         const taches = [...this.state.taches];
-        taches.push({ id, nom });
-        this.setState({ taches: taches, newTache: '' })
+        taches.push(tache);
+        this.setState({ taches })
 
-    }
-
-    handleChange = (event) => {
-        // a chaque changement de l'input, le state va changer
-        this.setState({ newTache: event.currentTarget.value })
     }
 
     render() {
@@ -47,14 +38,16 @@ class App extends React.Component {
                 <h1>{title}</h1>
                 <ul>
                     {this.state.taches.map(tache => (
-                        <Tache details={tache} onDelete={this.handleDelete} />
+                        <Tache
+                            details={tache}
+                            onDelete={this.handleDelete}
+                        />
                     ))
                     }
                 </ul>
-                <form onSubmit={this.handleSubmit}>
-                    <input value={this.state.newTache} onChange={this.handleChange} type="text" placeholder="Ajouter une taches ..." />
-                    <button>Confirmer</button>
-                </form>
+                <TacheForm
+                    onTaskAdd={this.handleAdd}
+                />
             </div >
         );
     }
