@@ -15,7 +15,8 @@ class TacheForm extends Component {
 
         const id = new Date().getTime();
         const nom = this.state.newTache;
-        this.props.onTaskAdd({ id, nom })
+        this.props.onTaskAdd({ id, nom });
+        this.setState({ newTache: '' });
     }
 
     render() {
