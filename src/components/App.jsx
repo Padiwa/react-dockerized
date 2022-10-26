@@ -6,11 +6,7 @@ class App extends React.Component {
 
     state = {
         taches: [
-            { id: 1, nom: "Tache 1" },
-            { id: 2, nom: "Tache 2" },
-            { id: 3, nom: "Tache 3" },
         ],
-        newTache: ''
     };
 
     // fonction fléchée permet de parler avec le bon this, d'avoir le state
@@ -39,6 +35,7 @@ class App extends React.Component {
                 <ul>
                     {this.state.taches.map(tache => (
                         <Tache
+                            key={tache.id}
                             details={tache}
                             onDelete={this.handleDelete}
                         />
