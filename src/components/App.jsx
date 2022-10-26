@@ -2,14 +2,14 @@ import React from "react";
 
 class App extends React.Component {
     // variable qui fait référence à un élément du DOM
-    clientInput = React.createRef();
 
     state = {
         taches: [
             { id: 1, nom: "Tache 1" },
             { id: 2, nom: "Tache 2" },
             { id: 3, nom: "Tache 3" },
-        ]
+        ],
+        newTache: ''
     };
 
     // fonction fléchée permet de parler avec le bon this, d'avoir le state
@@ -22,8 +22,21 @@ class App extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // les dev react aime pas les ref
-        console.log(this.clientInput.current.value)
+        const id = new Date().getTime();
+        const nom = this.state.newTache;
+        const tache = { id: id, nom: nom };
+
+        const taches = this.state.taches.slice();
+        taches.push(tache);
+        this.setState({ taches: taches, newTache: '' })
+
+    }
+
+    handleChange = (event) => {
+        // a chaque changement de l'input, le state va changer
+        const value = event.currentTarget.value;
+        this.setState({ newTache: value })
+        console.log(event.currentTarget.value)
     }
 
     render() {
@@ -43,7 +56,7 @@ class App extends React.Component {
                     }
                 </ul>
                 <form onSubmit={this.handleSubmit}>
-                    <input ref={this.clientInput} type="text" placeholder="Ajouter une taches ..." />
+                    <input value={this.state.newTache} onChange={this.handleChange} type="text" placeholder="Ajouter une taches ..." />
                     <button>Confirmer</button>
                 </form>
             </div >
