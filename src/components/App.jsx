@@ -14,29 +14,27 @@ class App extends React.Component {
 
     // fonction fléchée permet de parler avec le bon this, d'avoir le state
     handleDelete = id => {
-        const taches = this.state.taches.slice();
+        const taches = [...this.state.taches];
         const index = taches.findIndex((tache) => tache.id === id)
         taches.splice(index, 1);
-        this.setState({ taches: taches })
+        this.setState({ taches })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
+
         const id = new Date().getTime();
         const nom = this.state.newTache;
-        const tache = { id: id, nom: nom };
-
-        const taches = this.state.taches.slice();
-        taches.push(tache);
+        // const taches = this.state.taches.slice();
+        const taches = [...this.state.taches];
+        taches.push({ id, nom });
         this.setState({ taches: taches, newTache: '' })
 
     }
 
     handleChange = (event) => {
         // a chaque changement de l'input, le state va changer
-        const value = event.currentTarget.value;
-        this.setState({ newTache: value })
-        console.log(event.currentTarget.value)
+        this.setState({ newTache: event.currentTarget.value })
     }
 
     render() {
