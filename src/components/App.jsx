@@ -1,6 +1,9 @@
 import React from "react";
 
 class App extends React.Component {
+    // variable qui fait référence à un élément du DOM
+    clientInput = React.createRef();
+
     state = {
         taches: [
             { id: 1, nom: "Tache 1" },
@@ -15,6 +18,12 @@ class App extends React.Component {
         const index = taches.findIndex((tache) => tache.id === id)
         taches.splice(index, 1);
         this.setState({ taches: taches })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        // les dev react aime pas les ref
+        console.log(this.clientInput.current.value)
     }
 
     render() {
@@ -33,8 +42,8 @@ class App extends React.Component {
                     ))
                     }
                 </ul>
-                <form action="">
-                    <input type="text" placeholder="Ajouter une taches ..." />
+                <form onSubmit={this.handleSubmit}>
+                    <input ref={this.clientInput} type="text" placeholder="Ajouter une taches ..." />
                     <button>Confirmer</button>
                 </form>
             </div >
