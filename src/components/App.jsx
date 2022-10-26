@@ -1,5 +1,5 @@
 import React from "react";
-
+import Tache from "./Tache";
 class App extends React.Component {
     // variable qui fait référence à un élément du DOM
 
@@ -47,9 +47,7 @@ class App extends React.Component {
                 <h1>{title}</h1>
                 <ul>
                     {this.state.taches.map(tache => (
-                        <li key={tache.id}>
-                            {tache.nom} <button onClick={() => this.handleDelete(tache.id)}>X</button>
-                        </li>
+                        <Tache details={tache} onDelete={this.handleDelete} />
                     ))
                     }
                 </ul>
