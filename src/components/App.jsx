@@ -6,17 +6,15 @@ class App extends React.Component {
             { id: 1, nom: "Tache 1" },
             { id: 2, nom: "Tache 2" },
             { id: 3, nom: "Tache 3" },
-        ],
-        compteur: 0
+        ]
     };
 
-    handleClick = () => {
+    // fonction fléchée permet de parler avec le bon this, d'avoir le state
+    handleDelete = id => {
         const taches = this.state.taches.slice();
-        taches.push({ id: 4, nom: 'Tache 4' });
+        const index = taches.findIndex((tache) => tache.id === id)
+        taches.splice(index, 1);
         this.setState({ taches: taches })
-        // setState va permettre a react de faire un nouveau rendu, React va etre averti du chgmt d'état et faire un nouveau rendu
-        this.setState({ compteur: this.state.compteur + 1 });
-        console.log(this.state)
     }
 
     render() {
@@ -27,12 +25,10 @@ class App extends React.Component {
         return (
             <div>
                 <h1>{title}</h1>
-                {this.state.compteur}
-                <button onClick={this.handleClick}>State</button>
                 <ul>
                     {this.state.taches.map(tache => (
                         <li key={tache.id}>
-                            {tache.nom} <button>X</button>
+                            {tache.nom} <button onClick={() => this.handleDelete(tache.id)}>X</button>
                         </li>
                     ))
                     }
