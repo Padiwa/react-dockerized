@@ -11,10 +11,13 @@ const TacheForm = ({ onTaskAdd }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-
-        const id = new Date().getTime();
         const nom = newTache;
-        onTaskAdd({ id, nom });
+        const task = {
+            nom,
+            id: Date.now(),
+            done: false,
+        };
+        onTaskAdd(task);
         setNewTache('');
     }
 

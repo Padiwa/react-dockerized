@@ -6,7 +6,7 @@ import Tache from './Tache'
 
 const App = () => {
 
-  const [taches, setNewTaches] = useState([]);
+  const [taches, setTaches] = useState([]);
   const [theme, setTheme] = useState("light");
 
   const title = "Liste des tâches";
@@ -20,13 +20,25 @@ const App = () => {
     const updatedTaches = [...taches];
     const index = updatedTaches.findIndex(tache => tache.id === id)
     updatedTaches.splice(index, 1);
-    setNewTaches(updatedTaches)
+    setTaches(updatedTaches)
   }
 
-  const handleAdd = tache => {
-    const updatedTaches = [...taches];
-    updatedTaches.push(tache);
-    setNewTaches(updatedTaches)
+  const handleChange = (id) => {
+    const realTache = taches.find((t) => t.id === id);
+    const index = taches.findIndex((t) => t.id === id);
+    const taskCopy = { ...realTache };
+    const tachesListCopy = [...taches];
+
+    taskCopy.done = !taskCopy.done;
+    tachesListCopy[index] = taskCopy;
+    setTaches(tachesListCopy);
+    console.log(taches);
+  }
+
+  const handleAdd = (newTask) => {
+    // const updatedTaches = [...taches];
+    // updatedTaches.push(tache);
+    setTaches([...taches, newTask]);
 
   }
 
@@ -41,6 +53,7 @@ const App = () => {
               key={tache.id}
               details={tache}
               onDelete={handleDelete}
+              onDone={handleChange}
             />
           ))
           }
