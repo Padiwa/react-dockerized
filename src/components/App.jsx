@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Tache from "./Tache";
 import TacheForm from "./TacheForm";
 class App extends React.Component {
@@ -8,7 +8,6 @@ class App extends React.Component {
         taches: [
         ],
     };
-
     // fonction fléchée permet de parler avec le bon this, d'avoir le state
     handleDelete = id => {
         const taches = [...this.state.taches];
