@@ -1,46 +1,49 @@
 import React, { useState } from "react";
-import Tache from "./Tache";
-import TacheForm from "./TacheForm";
-const App = () => {
-    const [taches, setNewTaches ]= useState([]);
-    // variable qui fait référence à un élément du DOM
+import ReactDOM from "react-dom";
 
-    // fonction fléchée permet de parler avec le bon this, d'avoir le state
-    const handleDelete = id => {
-        const updatedTaches = [...taches];
-        const index = updatedTaches.findIndex(tache => tache.id === id)
-        updatedTaches.splice(index, 1);
-        setNewTaches(updatedTaches)
-    }
+import "../styles.css";
 
-    const handleAdd = tache => {
-        const updatedTaches = [...taches];
-        updatedTaches.push(tache);
-        setNewTaches(updatedTaches)
+// Composant en fin de chaine
+// Il reçoit dans ses props le thème et la fonction qui permet de le changer
+function ThemeChoice(props) {
+  const handleChange = event => {
+    const value = event.currentTarget.value;
+    props.updateTheme(value);
+  };
 
-    }
-
-    const title = "Liste des tâches";
-
-    // const elements = this.state.taches.map((tache) => <li key={tache.id}>{tache.nom} <button>X</button></li>)
-
-    return (
-        <div>
-            <h1>{title}</h1>
-            <ul>
-                {taches.map(tache => (
-                    <Tache
-                        key={tache.id}
-                        details={tache}
-                        onDelete={handleDelete}
-                    />
-                ))
-                }
-            </ul>
-            <TacheForm
-                onTaskAdd={handleAdd}
-            />
-        </div >
-    );
+  return (
+    <select name="theme" defaultValue={props.theme} onChange={handleChange}>
+      <option value="dark">Sombre</option>
+      <option value="light">Clair</option>
+    </select>
+  );
 }
+
+// Composant en deuxième ligne
+// Il reçoit dans ses props le thème et la fonction qui permet de le changer
+// Notons qu'en vrai il en a rien à foutre il s'en sert pas lui même
+// C'est uniquement pour pouvoir le passer au composant ThemeChoice ...
+function ToolBar(props) {
+  return (
+    <div>
+      <button>Zoomer</button>
+      <button>Dezoomer</button>
+      <ThemeChoice theme={props.theme} updateTheme={props.updateTheme} />
+    </div>
+  );
+}
+
+function App() {
+  // Le thème est en fait une classe CSS qui englobera notre app
+  // Ca change juste le couleur de la typo ...
+  const [theme, setTheme] = useState("light");
+
+  return (
+    <div className={theme}>
+      <ToolBar theme={theme} updateTheme={setTheme} />
+      <p>Theme utilisé : {theme}</p>
+    </div>
+  );
+}
+
 export default App;
