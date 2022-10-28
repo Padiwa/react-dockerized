@@ -1,52 +1,46 @@
 import React, { useState } from "react";
 import Tache from "./Tache";
 import TacheForm from "./TacheForm";
-class App extends React.Component {
+const App = () => {
+    const [taches, setNewTaches ]= useState([]);
     // variable qui fait référence à un élément du DOM
 
-    state = {
-        taches: [
-        ],
-    };
     // fonction fléchée permet de parler avec le bon this, d'avoir le state
-    handleDelete = id => {
-        const taches = [...this.state.taches];
-        const index = taches.findIndex((tache) => tache.id === id)
-        taches.splice(index, 1);
-        this.setState({ taches })
+    const handleDelete = id => {
+        const updatedTaches = [...taches];
+        const index = updatedTaches.findIndex(tache => tache.id === id)
+        updatedTaches.splice(index, 1);
+        setNewTaches(updatedTaches)
     }
 
-    handleAdd = tache => {
-        const taches = [...this.state.taches];
-        taches.push(tache);
-        this.setState({ taches })
+    const handleAdd = tache => {
+        const updatedTaches = [...taches];
+        updatedTaches.push(tache);
+        setNewTaches(updatedTaches)
 
     }
 
-    render() {
-        const title = "Liste des tâches";
+    const title = "Liste des tâches";
 
-        // const elements = this.state.taches.map((tache) => <li key={tache.id}>{tache.nom} <button>X</button></li>)
+    // const elements = this.state.taches.map((tache) => <li key={tache.id}>{tache.nom} <button>X</button></li>)
 
-        return (
-            <div>
-                <h1>{title}</h1>
-                <ul>
-                    {this.state.taches.map(tache => (
-                        <Tache
-                            key={tache.id}
-                            details={tache}
-                            onDelete={this.handleDelete}
-                        />
-                    ))
-                    }
-                </ul>
-                <TacheForm
-                    onTaskAdd={this.handleAdd}
-                />
-            </div >
-        );
-    }
+    return (
+        <div>
+            <h1>{title}</h1>
+            <ul>
+                {taches.map(tache => (
+                    <Tache
+                        key={tache.id}
+                        details={tache}
+                        onDelete={handleDelete}
+                    />
+                ))
+                }
+            </ul>
+            <TacheForm
+                onTaskAdd={handleAdd}
+            />
+        </div >
+    );
 }
-
 export default App;
