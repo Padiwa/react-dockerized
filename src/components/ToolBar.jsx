@@ -19,8 +19,6 @@ function ThemeChoice() {
 const ToolBar = () => {
     return (
         <div>
-            <button>Zoomer</button>
-            <button>Dezoomer</button>
             <ThemeChoice />
         </div>
     );
