@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import ThemeContext from "../Context/ThemeContext";
 import "../styles.css";
 import TacheForm from './TacheForm'
-import Tache from './Tache'
-import { useSelector } from "react-redux";
-
+import TacheList from "./TacheList";
 const App = () => {
-  const taches = useSelector((state) => state.todo);
-  // const [taches, setTaches] = useState([]);
   const [theme, setTheme] = useState("light");
 
   const title = "Liste des tâches";
@@ -22,12 +18,7 @@ const App = () => {
     <ThemeContext.Provider value={contextValue}>
       <div className={theme}>
         <h1 className="text-3xl font-bold underline">{title}</h1>
-        <ul className="m-6">
-          {taches.map(tache => (
-            <Tache key={tache.id} details={tache} />
-          ))
-          }
-        </ul>
+        <TacheList />
         <TacheForm />
       </div >
     </ThemeContext.Provider>

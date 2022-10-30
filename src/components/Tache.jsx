@@ -7,18 +7,26 @@ const Tache = ({ details }) => {
     const dispatch = useDispatch()
     const tacheDone = details.done ? 'done' : '';
     const statusIcon = details.done ? faArrowRotateLeft : faCheck;
+    const statusIconColor = details.done ? "#eb8a37" : "green";
     return (
         <li key={details.id} >
-            <div className={tacheDone + " m-2 text-xl w-48 drop-shadow-lg inline-block px-4"}>
-                {details.text}
+            <div className="drop-shadow-lg">
+                <span className={tacheDone + " m-2 w-48  inline-block px-4 task"}>
+                    {details.text}
+                </span>
+                <FontAwesomeIcon
+                    color="#d32626"
+                    className="fa-2xl mr-4"
+                    icon={faTrash}
+                    onClick={() => dispatch(deleteTask(details.id))}
+                />
+                <FontAwesomeIcon
+                    icon={statusIcon}
+                    className="fa-2xl"
+                    color={statusIconColor}
+                    onClick={() => dispatch(toggleTask(details.id))}
+                />
             </div>
-            <FontAwesomeIcon
-                icon={faTrash}
-                onClick={() => dispatch(deleteTask(details.id))}
-            />            <FontAwesomeIcon
-                icon={statusIcon}
-                onClick={() => dispatch(toggleTask(details.id))}
-            />
         </li >
     )
 
