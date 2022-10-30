@@ -13,8 +13,29 @@
 
 .done {
   text-decoration: line-through;
+  color: #bdb7bf;
+  position: relative;
+}
+
+.done::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #bdb7bf;
+  animation-name: strike;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 li {
   list-style: none;
+}
+
+.task {
+  font-size: 2rem;
 }
