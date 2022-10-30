@@ -39,3 +39,7 @@ li {
 .task {
   font-size: 2rem;
 }
+
+.createdAt {
+  font-size: 0.7rem;
+}

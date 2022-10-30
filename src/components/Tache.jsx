@@ -8,25 +8,36 @@ const Tache = ({ details }) => {
     const tacheDone = details.done ? 'done' : '';
     const statusIcon = details.done ? faArrowRotateLeft : faCheck;
     const statusIconColor = details.done ? "#eb8a37" : "green";
+    const createdAt = new Date(details.id);
+    console.log(createdAt);
     return (
-        <li key={details.id} >
-            <div className="drop-shadow-lg">
-                <span className={tacheDone + " m-2 w-48  inline-block px-4 task"}>
-                    {details.text}
-                </span>
-                <FontAwesomeIcon
-                    color="#d32626"
-                    className="fa-2xl mr-4"
-                    icon={faTrash}
-                    onClick={() => dispatch(deleteTask(details.id))}
-                />
-                <FontAwesomeIcon
-                    icon={statusIcon}
-                    className="fa-2xl"
-                    color={statusIconColor}
-                    onClick={() => dispatch(toggleTask(details.id))}
-                />
+        <li key={details.id}  >
+            <div className="border-b flex items-center justify-center">
+                <span className={tacheDone + " createdAt"}>{createdAt.toLocaleString()}</span>
+                <div className="drop-shadow-lg">
+                    <span className={tacheDone + " m-2 w-48  inline-block px-4 task"}>
+                        {details.text}
+                    </span>
+                </div>
+                <div>
+
+                    <FontAwesomeIcon
+                        color="#d32626"
+                        className="fa-2xl mr-4"
+                        icon={faTrash}
+                        onClick={() => dispatch(deleteTask(details.id))}
+                    />
+                </div>
+                <div>
+                    <FontAwesomeIcon
+                        icon={statusIcon}
+                        className="fa-2xl"
+                        color={statusIconColor}
+                        onClick={() => dispatch(toggleTask(details.id))}
+                    />
+                </div>
             </div>
+
         </li >
     )
 
