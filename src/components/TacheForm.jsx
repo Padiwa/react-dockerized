@@ -18,7 +18,7 @@ const TacheForm = () => {
         <div>
             <form onSubmit={handleSubmit} >
                 <input
-                    className="mt-2 pt-2 pb-2  border-2 rounded-l-lg"
+                    className="mt-2 pt-2 pb-2 rounded-l-lg"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     type="text"

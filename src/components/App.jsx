@@ -17,7 +17,7 @@ const App = () => {
     // balise fourni des info pour le theme context
     <ThemeContext.Provider value={contextValue}>
       <div className={theme}>
-        <h1 className="text-3xl font-bold underline">{title}</h1>
+        <h1 className="text-3xl font-bold mt-2 p-3">{title}</h1>
         <TacheList />
         <TacheForm />
       </div >
