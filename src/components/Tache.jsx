@@ -7,7 +7,7 @@ const Tache = ({ details }) => {
     const tacheDone = details.done ? 'done' : '';
     return (
         <li key={details.id} >
-            <div className={tacheDone + " m-2 w-48 border border-black-600 rounded inline-block px-4"}>
+            <div className={tacheDone + " m-2 text-xl w-48 drop-shadow-lg inline-block px-4"}>
                 {details.text}
             </div>
             <button onClick={() => dispatch(toggleTask(details.id))}>--</button > <button onClick={() => dispatch(deleteTask(details.id))}>X</button>
