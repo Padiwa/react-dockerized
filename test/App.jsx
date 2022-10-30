@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Tache from "./Tache";
 import TacheForm from "./TacheForm";
 const App = () => {
-    const [taches, setNewTaches ]= useState([]);
+    const [taches, setNewTaches] = useState([]);
     // variable qui fait référence à un élément du DOM
 
     // fonction fléchée permet de parler avec le bon this, d'avoir le state
@@ -22,7 +22,7 @@ const App = () => {
 
     const title = "Liste des tâches";
 
-    // const elements = this.state.taches.map((tache) => <li key={tache.id}>{tache.nom} <button>X</button></li>)
+    // const elements = this.state.taches.map((tache) => <li key={tache.id}>{tache.text} <button>X</button></li>)
 
     return (
         <div>

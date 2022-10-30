@@ -1,32 +1,24 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTask } from "./redux";
 import ToolBar from "./ToolBar";
 
-const TacheForm = ({ onTaskAdd }) => {
-    const [newTache, setNewTache] = useState("");
-
-    const handleChange = (event) => {
-        // a chaque changement de l'input, le state va changer
-        setNewTache(event.currentTarget.value)
-    }
+const TacheForm = () => {
+    const [text, setText] = useState("");
+    const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        const nom = newTache;
-        const task = {
-            nom,
-            id: Date.now(),
-            done: false,
-        };
-        onTaskAdd(task);
-        setNewTache('');
+        dispatch(addTask(text))
+        setText('');
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit} >
                 <input
-                    value={newTache}
-                    onChange={handleChange}
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
                     type="text"
                     placeholder="Ajouter une taches ..."
                 />
