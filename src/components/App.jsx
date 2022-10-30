@@ -21,8 +21,8 @@ const App = () => {
     // balise fourni des info pour le theme context
     <ThemeContext.Provider value={contextValue}>
       <div className={theme}>
-        <h1>{title}</h1>
-        <ul>
+        <h1 className="text-3xl font-bold underline">{title}</h1>
+        <ul className="m-6">
           {taches.map(tache => (
             <Tache key={tache.id} details={tache} />
           ))

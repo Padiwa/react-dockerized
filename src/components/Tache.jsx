@@ -4,10 +4,13 @@ import { deleteTask, toggleTask } from "./redux";
 
 const Tache = ({ details }) => {
     const dispatch = useDispatch()
-    const tacheDone = details.done ? 'done' : 'none';
+    const tacheDone = details.done ? 'done' : '';
     return (
-        <li className={tacheDone} key={details.id} >
-            {details.text} <button onClick={() => dispatch(toggleTask(details.id))}>--</button > <button onClick={() => dispatch(deleteTask(details.id))}>X</button>
+        <li key={details.id} >
+            <div className={tacheDone + " m-2 w-48 border border-black-600 rounded inline-block px-4"}>
+                {details.text}
+            </div>
+            <button onClick={() => dispatch(toggleTask(details.id))}>--</button > <button onClick={() => dispatch(deleteTask(details.id))}>X</button>
         </li >
     )
 

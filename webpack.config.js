@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
   output: {
@@ -10,9 +10,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
+        test: /\.css$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            "css-loader",
+            "postcss-loader",
+        ],
+    },
       {
         test: /\.?(js|jsx)$/,
         exclude: /node_modules/,
@@ -29,6 +33,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
+    new MiniCssExtractPlugin(),
   ],
   // pass all js files through Babel
   resolve: {
