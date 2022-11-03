@@ -12,10 +12,10 @@ const Tache = ({ details }) => {
     console.log(createdAt);
     return (
         <li key={details.id}  >
-            <div className="border-b flex items-center justify-center">
+            <div className="p-2 border-b flex items-center justify-around">
                 <span className={tacheDone + " createdAt"}>{createdAt.toLocaleString()}</span>
-                <div className="drop-shadow-lg">
-                    <span className={tacheDone + " m-2 w-48  inline-block px-4 task"}>
+                <div className="taskText">
+                    <span className={tacheDone + " taskText m-2 w-48 px-4 task"}>
                         {details.text}
                     </span>
                 </div>

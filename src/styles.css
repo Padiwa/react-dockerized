@@ -43,3 +43,7 @@ li {
 .createdAt {
   font-size: 0.7rem;
 }
+
+.taskText {
+  width: 100%;
+}
