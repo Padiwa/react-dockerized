@@ -2,10 +2,11 @@
   "name": "react-webpack-setup",
   "version": "1.0.0",
   "description": "Simple step by step walkthrough of setting up a React app with Webpack",
-  "main": "index.js",
+  "main": "src/electron-starter.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "electron": "electron ."
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "electron": "^21.2.2",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.1",
