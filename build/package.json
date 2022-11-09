@@ -1,0 +1,56 @@
+{
+    "name": "todolist",
+    "version": "1.0.0",
+    "description": "Todolist",
+    "main": "electron-starter.js",
+    "scripts": {
+      "dist:linux": "electron-builder --linux"
+    },
+    "build": {
+      "appId": "todolist.moutouchi",
+      "linux": {
+        "target": [
+          "pacman"
+        ],
+        "category": "Utility"
+      }
+    },
+    "homepage": "https://github.com/Padiwa/react-dockerized",
+    "keywords": [],
+    "author": "Charles maxime SASSOT <cmsassot@cadoles.com>",
+    "license": "ISC",
+    "files": [
+      "*.js",
+      "build",
+      "node_modules"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.19.6",
+        "@babel/preset-env": "^7.19.4",
+        "@babel/preset-react": "^7.18.6",
+        "autoprefixer": "^10.4.13",
+        "babel-loader": "^8.2.5",
+        "css-loader": "^6.7.1",
+        "electron": "^21.2.2",
+        "html-webpack-plugin": "^5.5.0",
+        "postcss": "^8.4.18",
+        "tailwindcss": "^3.2.1",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0",
+        "electron-builder": "^23.6.0",
+        "webpack-dev-server": "^4.11.1"
+      },
+      "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.2.0",
+        "@fortawesome/free-solid-svg-icons": "^6.2.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@reduxjs/toolkit": "^1.8.6",
+        "mini-css-extract-plugin": "^2.6.1",
+        "postcss-loader": "^7.0.1",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "react-redux": "^8.0.4",
+        "style-loader": "^3.3.1"
+    }
+  }
+  
