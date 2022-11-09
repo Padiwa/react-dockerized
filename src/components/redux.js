@@ -32,11 +32,18 @@ const todoslice = createSlice({
             localStorage.setItem("todo", JSON.stringify(state));
 
             return state;
-        }
+        },
+        editTask: (state, action) => {
+            const task = state.find(t => t.id === action.payload.id);
+            task.text = action.payload.text;
+            localStorage.removeItem("todo");
+            localStorage.setItem("todo", JSON.stringify(state));
+
+        },
     }
 })
 
-export const { addTask, deleteTask, toggleTask} = todoslice.actions
+export const { addTask, deleteTask, toggleTask, editTask} = todoslice.actions
 export const store = configureStore({
     reducer: {
         todo: todoslice.reducer
