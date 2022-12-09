@@ -5,14 +5,16 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
-    icon: path.join(__dirname, 'icons','cadoles.ico')
+    width: 800,
+    height: 600,
+    // webPreferences: {
+    //   preload: path.join(__dirname, 'build/main.js')
+    // }
   })
     // and load the index.html of the app.
     // mainWindow.loadURL('http://localhost:8085');
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile('build/index.html');
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

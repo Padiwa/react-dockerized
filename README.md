@@ -38,3 +38,10 @@ docker exec -it dockerized-react
 npm install @mantine/core @mantine/hooks @mantine/form @mantine/dropzone @mantine/modals @mantine/dates dayjs @mantine/notification
 ```
 
+
+
+## Pour builder une appli electron :
+ - se placer à la racine et lancer : `npm run build`
+
+- aller dans build : `npm run dist:linux`
+- sur votre machine : `sudo pacman -U todolist-1.0.0.pacman`

@@ -20,8 +20,6 @@ const Tache = ({ details }) => {
     const handleClick = () => {
         setCliked(!clicked)
         setinputClass("")
-        console.log(clicked)
-        console.log(inputClass)
     }
     const validateEdit = () => {
         setinputClass("hidden")
@@ -30,7 +28,7 @@ const Tache = ({ details }) => {
 
     }
     return (
-        <li key={details.id}  >
+        <li key={details.id}  className="break-all">
             <div className="p-2 border-b flex items-center justify-around">
                 <span className={tacheDone + " createdAt"}>{createdAt.toLocaleString()}</span>
                 <div className="taskText">
@@ -39,19 +37,14 @@ const Tache = ({ details }) => {
                     </span>
                     <div className={inputClass}>
                         <input
-                            className="mt-2 pt-2 pb-2 borde"
+                            className="mt-2 pt-2 pb-2 border w-11/12"
                             value={text}
                             onChange={(e) => setText(e.target.value)}
                             type="text"
                             required={true}
+                            onBlur={()=> validateEdit()}
                         />
-                        <FontAwesomeIcon
-                            color="green"
-                            className="fa-2xl mr-4"
-                            size="xs"
-                            icon={faCheck}
-                            onClick={() => validateEdit()}
-                        />
+                        <span tabIndex={0}></span>
                     </div>
                 </div>
                 <div>

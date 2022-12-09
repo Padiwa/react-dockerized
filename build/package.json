@@ -13,7 +13,8 @@
           "pacman"
         ],
         "category": "Utility"
-      }
+      },
+      "icon": "256x256.png"
     },
     "homepage": "https://github.com/Padiwa/react-dockerized",
     "keywords": [],

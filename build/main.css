@@ -560,14 +560,26 @@ video {
 .flex {
     display: flex
 }
+.hidden {
+    display: none
+}
 .w-48 {
     width: 12rem
+}
+.w-11\/12 {
+    width: 91.666667%
+}
+.w-9\/12 {
+    width: 75%
 }
 .items-center {
     align-items: center
 }
 .justify-around {
     justify-content: space-around
+}
+.break-all {
+    word-break: break-all
 }
 .rounded-l-lg {
     border-top-left-radius: 0.5rem;
@@ -576,6 +588,9 @@ video {
 .rounded-r-lg {
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem
+}
+.border {
+    border-width: 1px
 }
 .border-b {
     border-bottom-width: 1px

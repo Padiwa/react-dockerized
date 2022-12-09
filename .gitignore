@@ -1,1 +1,8 @@
 node_modules/
+app/
+build/dist
+dist/
+*.pacman
+*.rpm
+*.deb
+*.snap

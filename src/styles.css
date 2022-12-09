@@ -42,6 +42,7 @@ li {
 
 .createdAt {
   font-size: 0.7rem;
+  word-break: break-word;
 }
 
 .taskText {

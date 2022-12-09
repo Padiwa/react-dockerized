@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "./redux";
-import ToolBar from "./ToolBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const TacheForm = () => {
@@ -18,7 +17,7 @@ const TacheForm = () => {
         <div>
             <form onSubmit={handleSubmit} >
                 <input
-                    className="mt-2 pt-2 pb-2 rounded-l-lg"
+                    className="mt-2 pt-2 pb-2 rounded-l-lg w-9/12"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     type="text"
@@ -29,7 +28,6 @@ const TacheForm = () => {
 
                     <FontAwesomeIcon icon={faPlus} />
                 </button>
-                <ToolBar />
             </form>
         </div>
     )
